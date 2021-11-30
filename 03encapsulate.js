@@ -8,9 +8,9 @@ function expect(actual){
   }   
 }
 
-function test (name, callback){
+async function test (name, callback){
   try{
-    callback();
+    await callback();
     console.log(`${name} ... OK`);
   }catch(e){
     console.log(`${name} ... FAILED`);
@@ -18,13 +18,14 @@ function test (name, callback){
   }
 }
 
-const sum = (a, b) => a + b;
-const subtract = (a, b) => a - b;
+const sum = async (a, b) => a + b;
+const subtract = async (a, b) => a - b;
 
-test('sum of two number', () => {
-  expect(sum(1, 2)).toEqual(3);
+test('sum of two number', async() => {
+  expect(await sum(1, 2)).toEqual(3);
 })
 
-test('subtract two number', () => {
-  expect(subtract(5, 2)).toEqual(3);
+test('subtract two number', async() => {
+  expect(await subtract(4, 2)).toEqual(3);
 })
+
