@@ -18,14 +18,5 @@ async function test (name, callback){
   }
 }
 
-const sum = async (a, b) => a + b;
-const subtract = async (a, b) => a - b;
-
-test('sum of two number', async() => {
-  expect(await sum(1, 2)).toEqual(3);
-})
-
-test('subtract two number', async() => {
-  expect(await subtract(4, 2)).toEqual(3);
-})
-
+global.test = test;
+global.expect = expect;
